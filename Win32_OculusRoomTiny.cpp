@@ -23,6 +23,7 @@ limitations under the License.
 
 #include "Win32_OculusRoomTiny.h"
 #include "RenderTiny_D3D1X_Device.h"
+#include "SpeechBasics.h"
 
 //-------------------------------------------------------------------------------------
 // ***** OculusRoomTiny Class
@@ -647,6 +648,15 @@ int OculusRoomTinyApp::Run()
 {
     // Loop processing messages until Quit flag is set,
     // rendering game scene inside of OnIdle().
+	// Look for a connected Kinect, and create it if found
+
+	CSpeechBasics basics;
+    HRESULT hr = basics.CreateFirstConnected();
+    if (FAILED(hr))
+    {
+        return -1;
+    }
+
 
     while (!Quit)
     {

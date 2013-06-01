@@ -67,23 +67,27 @@
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(Configuration)\Obj\</IntDir>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
-    <IncludePath>C:\DXSDK\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\DXSDK\Lib\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(KINECTSDK10_DIR)\lib\x86;C:\DXSDK\Lib\x86;C:\Program Files\Microsoft SDKs\Speech\v11.0\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Program Files\Microsoft SDKs\Kinect\v1.7\inc;C:\DXSDK\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(Configuration)\Obj\</IntDir>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+    <IncludePath>C:\Program Files\Microsoft SDKs\Kinect\v1.7\inc;C:\Program Files\Microsoft SDKs\Speech\v11.0\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProgramW6432)\Microsoft SDKs\Speech\v11.0\Lib;$(KINECTSDK10_DIR)\lib\amd64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>$(Configuration)\Obj\</IntDir>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+    <IncludePath>C:\Program Files\Microsoft SDKs\Kinect\v1.7\inc;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>$(Configuration)\Obj\</IntDir>
     <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
+    <IncludePath>C:\Program Files\Microsoft SDKs\Kinect\v1.7\inc;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -100,26 +104,24 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libovrd.lib;dxgi.lib;d3d10.lib;d3d11.lib;d3dcompiler.lib;opengl32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libovrd.lib;dxgi.lib;d3d10.lib;d3d11.lib;d3dcompiler.lib;Msdmo.lib;dmoguids.lib;amstrmid.lib;avrt.lib;kernel32.lib;user32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Kinect10.lib;opengl32.lib;winmm.lib;gdi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../LibOVR/Lib/Win32;$(DXSDK_DIR)/Lib/x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>OVR_BUILD_DEBUG;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>../../LibOVR/Include;../../LibOVR/Src;../../3rdParty/glext;$(DXSDK_DIR)/Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <MinimalRebuild>false</MinimalRebuild>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>libovr64d.lib;dxgi.lib;d3d10.lib;d3d11.lib;d3dcompiler.lib;opengl32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libovr64d.lib;dxgi.lib;d3d10.lib;d3d11.lib;d3dcompiler.lib;opengl32.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Kinect10.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../../LibOVR/Lib/x64;$(DXSDK_DIR)/Lib/x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -170,18 +172,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="KinectAudioStream.cpp" />
     <ClCompile Include="OculusRoomModel.cpp" />
     <ClCompile Include="RenderTiny_D3D1X_Device.cpp" />
     <ClCompile Include="RenderTiny_Device.cpp" />
+    <ClCompile Include="SpeechBasics.cpp" />
     <ClCompile Include="Win32_OculusRoomTiny.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="KinectAudioStream.h" />
     <ClInclude Include="RenderTiny_D3D1X_Device.h" />
     <ClInclude Include="RenderTiny_Device.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="SpeechBasics.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="Win32_OculusRoomTiny.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OculusRoomTiny.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SpeechBasics-D2D.grxml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
