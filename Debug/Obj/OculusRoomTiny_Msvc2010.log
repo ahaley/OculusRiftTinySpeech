@@ -1,0 +1,4 @@
+﻿  OculusRoomModel.cpp
+OculusRoomModel.cpp(258): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+OculusRoomModel.cpp(260): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+  OculusRoomTiny_Msvc2010.vcxproj -> C:\OculusSDK\Samples\OculusRoomTiny\Debug\OculusRoomTiny.exe
