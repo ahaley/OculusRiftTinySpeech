@@ -254,10 +254,16 @@ void DrawBox(Scene* scene, RenderDevice* render, OculusRoomTinyApp* app)
 	Vector3f eyePos = app->GetEyePos();
 
 	float yaw = app->GetEyeYaw();
+	float pitch = app->GetEyePitch();
 
-	float dx = cos(yaw + M_PI_2) * 2.0f + eyePos.x;
-	float dy = eyePos.y;
-	float dz = -sin(yaw + M_PI_2) * 2.0f + eyePos.z;
+	float distance = 1.2f;
+
+	float dx = cos(yaw + M_PI_2) * distance + eyePos.x;
+	float dz = -sin(yaw + M_PI_2) * sin(pitch + M_PI_2) * distance + eyePos.z;
+
+	//dz = dz + -sin(pitch + M_PI_2) * distance;
+
+	float dy = -cos(pitch + M_PI_2) * distance + eyePos.y;
 
 	scene->World.Add(Ptr<Model>(*CreateModel(Vector3f(dx, dy, dz), &Boxes, fills)));
 }
