@@ -1,8 +1,3 @@
-﻿  SpeechBasics.cpp
-SpeechBasics.cpp(624): warning C4100: 'szMessage' : unreferenced formal parameter
-  Win32_OculusRoomTiny.cpp
-C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\atlmfc\include\statreg.h(114): error C2661: 'operator new' : no overloaded function takes 3 arguments
-C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\atlmfc\include\statreg.h(121): error C2661: 'operator new' : no overloaded function takes 3 arguments
-C:\Program Files\Microsoft SDKs\Speech\v11.0\Include\sphelper.h(934): error C2661: 'operator new' : no overloaded function takes 3 arguments
-C:\Program Files\Microsoft SDKs\Speech\v11.0\Include\sphelper.h(2941): error C2661: 'operator new' : no overloaded function takes 3 arguments
-  Generating Code...
+﻿  Win32_OculusRoomTiny.cpp
+  OculusRoomTiny_Msvc2010.vcxproj -> C:\OculusSDK\Samples\OculusRoomTiny\Debug\OculusRoomTiny.exe
+  OculusRoomTiny_Msvc2010.vcxproj -> C:\OculusSDK\Samples\OculusRoomTiny\Debug\OculusRoomTiny.exe
